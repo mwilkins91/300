@@ -12,5 +12,7 @@ WORKDIR /app
 
 COPY . ./
 RUN pipenv install
+RUN npm install
+
 EXPOSE 3000
 CMD ["pipenv", "run", "node", "server.js"]
