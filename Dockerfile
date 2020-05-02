@@ -1,11 +1,9 @@
 FROM node:12.16.3-alpine3.10
 
 RUN apk add --update-cache \
-  python \
-  python-dev \
-  py-pip \
+  python3 \
   build-base \
-  && pip install pipenv \
+  && pip3 install pipenv \
   && rm -rf /var/cache/apk/*
 
 WORKDIR /app
