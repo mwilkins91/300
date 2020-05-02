@@ -37,3 +37,5 @@ try:
     )
 except TwilioRestException as e:
     print(e)
+
+print(f"<div style=\"border: 2px solid red; margin-top: 20px; text-align: right;\"><p>Bot:</p><p>{line}</p></div>")
