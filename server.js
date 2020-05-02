@@ -4,11 +4,13 @@ const CRON_TIME_SETTING = "* * * * *";
 const { spawn } = require("child_process");
 const PORT = process.env.PORT || 3000;
 const fs = require("fs");
+const path = require("path");
+
 const onCron = () => {
   const python = spawn("python", ["main.py"]);
   python.stdout.on("data", (data) => {
     console.log(data.toString());
-    fs.appendFile("convo.html", `<p>${data.toString()}</p>`, function (err) {
+    fs.appendFile("convo.html", data.toString(), function (err) {
       if (err) console.error(err);
     });
   });
@@ -46,7 +48,7 @@ app.post("/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/convo.html");
+  res.sendFile(path.join(__dirname, "/convo.html"));
 });
 
 app.listen(PORT, () => {
