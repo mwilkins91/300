@@ -20,11 +20,11 @@ try:
     is_complete = pickle.load(open("complete.pickle", "rb"))
 except (OSError, IOError) as e:
     is_complete = False
-    is_complete.dump(is_complete, open("complete.pickle", "wb"))
+    pickle.dump(is_complete, open("complete.pickle", "wb"))
 
 if line.strip() == 'To victory!':
     is_complete = True
-    is_complete.dump(is_complete, open("complete.pickle", "wb"))
+    pickle.dump(is_complete, open("complete.pickle", "wb"))
 
 if is_complete:
     print('done!')

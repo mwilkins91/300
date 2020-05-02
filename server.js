@@ -1,6 +1,6 @@
 const cron = require("node-cron");
 const cronParser = require("cron-parser").parseExpression;
-const CRON_TIME_SETTING = "* * * * *";
+const CRON_TIME_SETTING = "*/5 * * * *";
 const { spawn } = require("child_process");
 const PORT = process.env.PORT || 3000;
 
