@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post("/", (req, res) => {
   const msg = req.body.Body;
   console.log("body: ", req.body);
-  if (!msg || !isValid) {
+  if (!msg) {
     return res.status(400).send();
   }
   fs.appendFile(
